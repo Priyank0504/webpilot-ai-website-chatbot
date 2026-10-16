@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    env_file: [.env]
+    environment:
+      DB_PATH: /data/webpilot.db
+      ALLOW_LOCAL_URLS: "true"   # demo only: lets the crawler fetch the bundled sample site
+    volumes: ["data:/data"]
+volumes: { data: {} }
